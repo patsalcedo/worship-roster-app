@@ -1,0 +1,27 @@
+            //        List<LocalDate> feb = getSundaysOfMonth(sundays, 2);
+        //        List<LocalDate> mar = getSundaysOfMonth(sundays, 3);
+        //        List<LocalDate> apr = getSundaysOfMonth(sundays, 4);
+        //        List<LocalDate> may = getSundaysOfMonth(sundays, 5);
+        //        List<LocalDate> jun = getSundaysOfMonth(sundays, 6);
+        //        List<LocalDate> jul = getSundaysOfMonth(sundays, 7);
+        //        List<LocalDate> aug = getSundaysOfMonth(sundays, 8);
+        //        List<LocalDate> sep = getSundaysOfMonth(sundays, 9);
+        //        List<LocalDate> oct = getSundaysOfMonth(sundays, 10);
+        //        List<LocalDate> nov = getSundaysOfMonth(sundays, 11);
+        //        List<LocalDate> dec = getSundaysOfMonth(sundays, 12);
+
+
+        Musician patricia = new Musician("Patricia", "Salcedo", true);
+        List<String> patInstruments = new ArrayList<>();
+        patInstruments.add("Voice");
+        patInstruments.add("Bass");
+        patInstruments.add("Guitar");
+        patInstruments.add("Keys");
+        patricia.setInstruments(patInstruments); // would eventually do this by json file possibly
+
+
+        Musician jamie = new Musician("Jamie", "Paz", true);
+        Musician neil = new Musician("Neil", "Weir-Smith", false);
+        Musician ezra = new Musician("Ezra", "Paz", true);
+        Musician jek = new Musician("Rodrigo", "Rola", false);
+        Musician hannah = new Musician("Hannah", "Vergara", true);

@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "Patricia",
+    "lastName": "Salcedo",
+    "instruments" : [
+      "Voice",
+      "Guitar",
+      "Bass",
+      "Keys"
+    ],
+    "worshipLeader": true
+  },
+  {
+    "firstName": "Jamie",
+    "lastName": "Paz",
+    "instruments" : [
+      "Voice",
+      "Guitar",
+      "Bass",
+      "Keys",
+      "Drums"
+    ],
+    "worshipLeader": true
+  },
+  {
+    "firstName": "Neil",
+    "lastName": "Weir-Smith",
+    "instruments" : [
+      "Voice",
+      "Guitar",
+      "Bass"
+    ],
+    "worshipLeader": false
+  },
+  {
+    "firstName": "Ezra",
+    "lastName": "Paz",
+    "instruments" : [
+      "Voice",
+      "Drums",
+      "Keys"
+    ],
+    "worshipLeader": true
+  },
+  {
+    "firstName": "Hannah",
+    "lastName": "Vergara",
+    "instruments" : [
+      "Voice",
+      "Drums"
+    ],
+    "worshipLeader": true
+  },
+  {
+    "firstName": "Rodrigo",
+    "lastName": "Rola",
+    "instruments" : [
+      "Drums"
+    ],
+    "worshipLeader": false
+  }
+]
