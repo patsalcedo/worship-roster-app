@@ -5,26 +5,18 @@ import com.fasterxml.jackson.databind.*;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.time.temporal.TemporalAdjusters.firstInMonth;
+
 public class Main {
     public static void main(String[] args) {
-        LocalDate startOf2024 = LocalDate.of(2024, 1, 1);
-        LocalDate endOf2024 = LocalDate.of(2024, 12, 31);
-        List<LocalDate> dates = startOf2024.datesUntil(endOf2024).toList();
-
-        List<LocalDate> sundays = new ArrayList<>();
-        for(LocalDate d : dates){
-            if(d.getDayOfWeek().getValue() == 7){
-                sundays.add(d);
-            }
-        }
-
-        List<LocalDate> jan = getSundaysOfMonth(sundays, 1);
-        jan.forEach(System.out::println);
+        List<LocalDate> currentMonthSundays = getSundaysOfMonth(4, 2024);
 
         List<Musician> musicians = new ArrayList<>();
         try {
@@ -33,7 +25,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-//        Roster jan2024Roster = new Roster();
+//        Roster jan2024Roster = new Roster("January", 2024);
     }
 
     private static List<Musician> createMusicians() throws IOException {
@@ -53,14 +45,19 @@ public class Main {
         return data;
     }
 
-    private static List<LocalDate> getSundaysOfMonth(List<LocalDate> sundays, int monthValue) {
-        List<LocalDate> monthOfSundays = new ArrayList<>();
-        for(LocalDate d : sundays){
-            if(d.getMonth().getValue() == monthValue){
-                monthOfSundays.add(d);
-            }
-        }
-        return monthOfSundays;
+    // less coupled - no need to supply the list of all sundays in the year
+    // no need to store that many dates (as of rn)
+    public static List<LocalDate> getSundaysOfMonth(int month, int year) {
+        List<LocalDate> sundays = new ArrayList<>();
+        LocalDate firstDayOfMonth = LocalDate.of(year, month, 1);
+
+        LocalDate sunday = firstDayOfMonth.with(firstInMonth(DayOfWeek.SUNDAY));
+
+        do {
+            sunday = sunday.plus(Period.ofDays(7));
+        } while (sunday.getMonth() == firstDayOfMonth.getMonth());
+
+        return sundays;
     }
 
 
